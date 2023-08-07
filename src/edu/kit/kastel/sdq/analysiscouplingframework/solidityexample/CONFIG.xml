@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><configuration>
+        	
+    <entrypoint>ALIGNMENT</entrypoint>
+        	
+    <!-- If no value is assigned a new uuid will be generated during first execution -->
+    <uuid>73d0e1f6-6c1a-4d9e-9571-9c3df82e351f</uuid>
+    
+    <tempSharedFolder>mocking folders for testing/TEMP</tempSharedFolder>
+    <resultSharedFolder>mocking folders for testing/RESULT</resultSharedFolder>
+        	
+    <pathsOfIDs>
+                	
+        <pathOfID id="ALIGNMENT_EXPORT_FILE_A">mocking folders for testing/working dirs/alignment/test_A.xml</pathOfID>
+        
+        <pathOfID id="ANALYSIS_IMPORT_FILE_A">mocking folders for testing/working dirs/analysis/test_A.xml</pathOfID>
+        <pathOfID id="ANALYSIS_EXPORT_FILE_B">mocking folders for testing/working dirs/analysis/test_B.xml</pathOfID>
+        
+        <pathOfID id="RESOLUTION_IMPORT_FILE_B">mocking folders for testing/working dirs/resolution/test_B.xml</pathOfID>
+        <pathOfID id="RESOLUTION_EXECUTE_FILE_C">mocking folders for testing/working dirs/resolution/script_C.xml</pathOfID>
+        <pathOfID id="RESOLUTION_EXPORT_FILE_D">mocking folders for testing/working dirs/resolution/test_D.xml</pathOfID>
+        
+        <pathOfID id="INTEGRATION_IMPORT_FILE_D">mocking folders for testing/working dirs/integration/test_D.xml</pathOfID>
+        <pathOfID id="INTEGRATION_EXPORT_FILE_E">mocking folders for testing/working dirs/integration/test_E.xml</pathOfID>
+                	
+    </pathsOfIDs>
+        
+</configuration>
