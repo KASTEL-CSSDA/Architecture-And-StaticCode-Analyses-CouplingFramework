@@ -1,5 +1,9 @@
 package edu.kit.kastel.sdq.analysiscouplingframework.solidityexample;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.ResolutionPS;
@@ -7,6 +11,7 @@ import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Default
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.OKResult;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.Result;
+import edu.kit.kastel.sdq.solidityroleadapter.SolidityRoleAdapter;
 
 public class SolidityRoleAdapterPS extends ResolutionPS {
 	
@@ -20,8 +25,38 @@ public class SolidityRoleAdapterPS extends ResolutionPS {
 
 	@Override
 	public Result execute() {
+		String[]args = {};
+		SolidityRoleAdapter.main(args);
+		
+//		try {
+//            System.out.println("**********");
+//            //runProcess("java -cp src ../../../TestExternalExec/src/edu/kit/kastel/sdq/test/Test.java");
+//            //runProcess("java -cp src ../../../SolidityAccessControlEnforcement/Projects/SolidityRoleAdapter/src/edu/kit/kastel/sdq/solidityroleadapter/SolidityRoleAdapter.java");
+//            runProcess("java -cp src ../../../SolidityRoleAdapter/src/edu/kit/kastel/sdq/solidityroleadapter/SolidityRoleAdapter.java");
+//            System.out.println("**********");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+		
 		return new OKResult("SolidityRoleAdapterPS: Start execute()");
 	}
+	
+	private static void printLines(String cmd, InputStream ins) throws Exception {
+        String line = null;
+        BufferedReader in = new BufferedReader(
+            new InputStreamReader(ins));
+        while ((line = in.readLine()) != null) {
+            System.out.println(cmd + " " + line);
+        }
+      }
+
+      private static void runProcess(String command) throws Exception {
+    	Process pro = Runtime.getRuntime().exec(command);
+        printLines(command + " stdout:", pro.getInputStream());
+        printLines(command + " stderr:", pro.getErrorStream());
+        pro.waitFor();
+        System.out.println(command + " exitValue() " + pro.exitValue());
+      }
 
 	@Override
 	public Workflow getWorkflow() {
