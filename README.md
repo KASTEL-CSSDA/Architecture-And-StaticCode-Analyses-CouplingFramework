@@ -7,7 +7,7 @@ Provides a framework for executing a static analysis in 5 Steps: ALIGNMENT, COMP
 ## Project Structure
 
 - [src/edu/kit/kastel/sdq/analysiscouplingframework](https://github.com/KASTEL-CSSDA/Architecture-And-StaticCode-Analyses-CouplingFramework/tree/main/src/edu/kit/kastel/sdq/analysiscouplingframework): Contains the abstract framework.
-- [Framework Instances](https://github.com/KASTEL-CSSDA/Architecture-And-StaticCode-Analyses-CouplingFramework/tree/solidityexample/Framework%20Instances): Directory for Instances of the framework. Each for different analyses, developed at specific branches.
+- [Framework Instances](https://github.com/KASTEL-CSSDA/Architecture-And-StaticCode-Analyses-CouplingFramework/tree/main/Framework%20Instances): Directory for Instances of the framework. Each for different analyses, developed at specific branches.
 
 ## Installation
 
