@@ -12,7 +12,7 @@ public class AccessControlGeneratorPS extends AlignmentPS {
 
 	static final String[] FILES_FOR_IMPORT = {};
 	static final String[] FILES_FOR_EXECUTION = {};
-	static final String[] FILES_FOR_EXPORT = {"ALIGNMENT_EXPORT_FILE_A"};
+	static final String[] FILES_FOR_EXPORT = {};
 	
 	public AccessControlGeneratorPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);

@@ -10,9 +10,9 @@ import edu.kit.kastel.sdq.analysiscouplingframework.results.Result;
 
 public class SolcVerifyAndSlitherPS extends AnalysisPS {
 	
-	static final String[] FILES_FOR_IMPORT = {"ANALYSIS_IMPORT_FILE_A"};
+	static final String[] FILES_FOR_IMPORT = {};
 	static final String[] FILES_FOR_EXECUTION = {};
-	static final String[] FILES_FOR_EXPORT = {"ANALYSIS_EXPORT_FILE_B"};
+	static final String[] FILES_FOR_EXPORT = {};
 	
 	public SolcVerifyAndSlitherPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);

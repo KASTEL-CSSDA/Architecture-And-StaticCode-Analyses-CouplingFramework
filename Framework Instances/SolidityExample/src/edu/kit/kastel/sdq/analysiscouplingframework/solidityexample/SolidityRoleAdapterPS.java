@@ -1,23 +1,22 @@
 package edu.kit.kastel.sdq.analysiscouplingframework.solidityexample;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.ResolutionPS;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.DefaultWorkflow;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
+import edu.kit.kastel.sdq.analysiscouplingframework.results.NotOKResult;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.OKResult;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.Result;
 import edu.kit.kastel.sdq.solidityroleadapter.SolidityRoleAdapter;
 
 public class SolidityRoleAdapterPS extends ResolutionPS {
-	
-	static final String[] FILES_FOR_IMPORT = {"RESOLUTION_IMPORT_FILE_B"};
-	static final String[] FILES_FOR_EXECUTION = {"RESOLUTION_EXECUTE_FILE_C"};
-	static final String[] FILES_FOR_EXPORT = {"RESOLUTION_EXPORT_FILE_D"};
+
+	static final String[] FILES_FOR_IMPORT = { "RESOLUTION_import_URI_SOLC_VERIFY", "RESOLUTION_import_URI_SLITHER",
+			"RESOLUTION_import_URI_ROLE_ANNOTATIONS" };
+	static final String[] FILES_FOR_EXECUTION = {};
+	static final String[] FILES_FOR_EXPORT = { "RESOLUTION_export_URI_OF_RESULT_TXT_FILE",
+			"RESOLUTION_export_URI_OF_RESULT_JSON_FILE" };
 
 	public SolidityRoleAdapterPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);
@@ -25,38 +24,20 @@ public class SolidityRoleAdapterPS extends ResolutionPS {
 
 	@Override
 	public Result execute() {
-		String[]args = {};
-		SolidityRoleAdapter.main(args);
-		
-//		try {
-//            System.out.println("**********");
-//            //runProcess("java -cp src ../../../TestExternalExec/src/edu/kit/kastel/sdq/test/Test.java");
-//            //runProcess("java -cp src ../../../SolidityAccessControlEnforcement/Projects/SolidityRoleAdapter/src/edu/kit/kastel/sdq/solidityroleadapter/SolidityRoleAdapter.java");
-//            runProcess("java -cp src ../../../SolidityRoleAdapter/src/edu/kit/kastel/sdq/solidityroleadapter/SolidityRoleAdapter.java");
-//            System.out.println("**********");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-		
-		return new OKResult("SolidityRoleAdapterPS: Start execute()");
-	}
-	
-	private static void printLines(String cmd, InputStream ins) throws Exception {
-        String line = null;
-        BufferedReader in = new BufferedReader(
-            new InputStreamReader(ins));
-        while ((line = in.readLine()) != null) {
-            System.out.println(cmd + " " + line);
-        }
-      }
+		Result result = new OKResult("SolidityRoleAdapterPS: Start execute()");
+		String[] args = new String[5];
+		for (int i = 0; i < FILES_FOR_IMPORT.length + FILES_FOR_EXPORT.length; i++) {
+			args[i] = super.registry.getFileForID(super.getNecessaryIDs()[i]).getPath();
+		}
 
-      private static void runProcess(String command) throws Exception {
-    	Process pro = Runtime.getRuntime().exec(command);
-        printLines(command + " stdout:", pro.getInputStream());
-        printLines(command + " stderr:", pro.getErrorStream());
-        pro.waitFor();
-        System.out.println(command + " exitValue() " + pro.exitValue());
-      }
+		try {
+			SolidityRoleAdapter.main(args);
+		} catch (Exception e) {
+			return result.concatWithSuccessor(
+					new NotOKResult("SolidityRoleAdapterPS: Execution failed:" + "\n" + e.getMessage()));
+		}
+		return result.concatWithSuccessor(new OKResult("SolidityRoleAdapterPS: Execution successful"));
+	}
 
 	@Override
 	public Workflow getWorkflow() {

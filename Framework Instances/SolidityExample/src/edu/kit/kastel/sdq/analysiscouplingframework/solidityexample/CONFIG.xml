@@ -9,19 +9,18 @@
     <resultSharedFolder>mocking folders for testing/RESULT</resultSharedFolder>
         	
     <pathsOfIDs>
-                	
-        <pathOfID id="ALIGNMENT_EXPORT_FILE_A">mocking folders for testing/working dirs/alignment/test_A.xml</pathOfID>
         
-        <pathOfID id="ANALYSIS_IMPORT_FILE_A">mocking folders for testing/working dirs/analysis/test_A.xml</pathOfID>
-        <pathOfID id="ANALYSIS_EXPORT_FILE_B">mocking folders for testing/working dirs/analysis/test_B.xml</pathOfID>
+        <pathOfID id="RESOLUTION_import_URI_SOLC_VERIFY">../../../SolidityAccessControlEnforcement/Projects/SolidityRoleAdapter/data/SolcVerifyResults.txt</pathOfID>
+        <pathOfID id="RESOLUTION_import_URI_SLITHER">../../../SolidityAccessControlEnforcement/Projects/SolidityRoleAdapter/data/SlitherResults - Market.txt</pathOfID>
+        <pathOfID id="RESOLUTION_import_URI_ROLE_ANNOTATIONS">../../../SolidityAccessControlEnforcement/Projects/SolidityRoleAdapter/data/RoleAnnotations.txt</pathOfID>
+        <pathOfID id="RESOLUTION_export_URI_OF_RESULT_TXT_FILE">../../../SolidityAccessControlEnforcement/Projects/SolidityRoleAdapter/data/SolidityRoleAdapter - Results.txt</pathOfID>
+        <pathOfID id="RESOLUTION_export_URI_OF_RESULT_JSON_FILE">../../../SolidityAccessControlEnforcement/Projects/SolidityRoleAdapter/data/SolidityRoleAdapter - Results.json</pathOfID>
         
-        <pathOfID id="RESOLUTION_IMPORT_FILE_B">mocking folders for testing/working dirs/resolution/test_B.xml</pathOfID>
-        <pathOfID id="RESOLUTION_EXECUTE_FILE_C">mocking folders for testing/working dirs/resolution/script_C.xml</pathOfID>
-        <pathOfID id="RESOLUTION_EXPORT_FILE_D">mocking folders for testing/working dirs/resolution/test_D.xml</pathOfID>
-        
-        <pathOfID id="INTEGRATION_IMPORT_FILE_D">mocking folders for testing/working dirs/integration/test_D.xml</pathOfID>
-        <pathOfID id="INTEGRATION_EXPORT_FILE_E">mocking folders for testing/working dirs/integration/test_E.xml</pathOfID>
-                	
+        <pathOfID id="INTEGRATION_import_FILE_URI_ACS">../../../SolidityAccessControlEnforcement/Projects/MissingRoleRelationAdder/Augur.accesscontrolsystem</pathOfID>
+        <pathOfID id="INTEGRATION_import_FILE_URI_SCM">../../../SolidityAccessControlEnforcement/Projects/MissingRoleRelationAdder/Market.smartcontractmodel</pathOfID>
+        <pathOfID id="INTEGRATION_import_JSON_FILE_URI">../../../SolidityAccessControlEnforcement/Projects/MissingRoleRelationAdder/data/SolidityRoleAdapter - Results.json</pathOfID>
+        <pathOfID id="INTEGRATION_export_FILE_URI_UPDATED_ACS">../../../SolidityAccessControlEnforcement/Projects/MissingRoleRelationAdder/Augur_modified.accesscontrolsystem</pathOfID>
+
     </pathsOfIDs>
         
 </configuration>

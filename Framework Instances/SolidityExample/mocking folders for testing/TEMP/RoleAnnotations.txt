@@ -1,0 +1,34 @@
+Market::designatedReporter {MARKET_CREATOR}, {}
+Market::openReporter {SHAREHOLDER}, {}
+Market::validityBond {MARKET_CREATOR}, {}
+Market::creationBond {MARKET_CREATOR}, {}
+Market::creationBondPaidOut {MANAGER}, {}
+Market::shares {SHAREHOLDER}, {MARKET_CREATOR}
+Market::disagreeCounter {SHAREHOLDER}, {}
+Market::agreeCounter {SHAREHOLDER}, {}
+Market::disputes {SHAREHOLDER}, {}
+Market::reportedOutcome {DESIGNATED_REPORTER, OPEN_REPORTER}, {}
+Market::createdBonds {MARKET_CREATOR}, {}
+Market::reporterSet {MARKET_CREATOR}, {}
+Market::tradingActive {MANAGER}, {MARKET_CREATOR}
+Market::designatedReportAllowed {DESIGNATED_REPORTER, OPEN_REPORTER, MANAGER}, {}
+Market::openReportAllowed {DESIGNATED_REPORTER, OPEN_REPORTER, MANAGER}, {}
+Market::disputesAllowed {DESIGNATED_REPORTER, OPEN_REPORTER, MANAGER}, {}
+Market::settlementPhaseActive {MANAGER}, {}
+Market::designatedReporterReported {DESIGNATED_REPORTER}, {}
+Market::setReporter {MARKET_CREATOR}
+Market::setBonds {MARKET_CREATOR}
+Market::buyShares {MARKET_CREATOR, DESIGNATED_REPORTER, OPEN_REPORTER, SHAREHOLDER, MANAGER}
+Market::sellShares {SHAREHOLDER}
+Market::claimReporterRole {SHAREHOLDER}
+Market::designatedReport {DESIGNATED_REPORTER}
+Market::openReport {OPEN_REPORTER}
+Market::report {DESIGNATED_REPORTER, OPEN_REPORTER}
+Market::disputeOutcome {SHAREHOLDER}
+Market::closeTrading {MANAGER}
+Market::allowOpenReport {MANAGER}
+Market::closeDisputingWindow {MANAGER}
+Market::sentCreationBond {MANAGER}
+MarketManagement::marketCounter {}, {}
+MarketManagement::markets {}, {}
+MarketManagement::createNewMarket {MARKET_CREATOR, DESIGNATED_REPORTER, OPEN_REPORTER, SHAREHOLDER, MANAGER}

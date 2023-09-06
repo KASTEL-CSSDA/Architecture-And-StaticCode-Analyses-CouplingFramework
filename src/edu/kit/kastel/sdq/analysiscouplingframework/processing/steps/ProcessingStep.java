@@ -189,13 +189,13 @@ public abstract class ProcessingStep {
 	}
 
 	/**
-	 * Concats all necessaryIDs of this ProcessingStep. Registry.TEMP_SHARED_FOLDER
-	 * + Registry.RESULT_SHARED_FOLDER + getFilesForImport() +
-	 * getFilesForExecution() + getFilesForExport()
+	 * Concats all necessaryIDs of this ProcessingStep. getFilesForImport() +
+	 * getFilesForExecution() + getFilesForExport() + Registry.TEMP_SHARED_FOLDER
+	 * + Registry.RESULT_SHARED_FOLDER
 	 * 
-	 * @return an Array with all IDs named above
+	 * @return an ordered Array with all IDs named above
 	 */
-	private String[] getNecessaryIDs() {
+	protected String[] getNecessaryIDs() {
 		String[] sharedFolders = { Registry.TEMP_SHARED_FOLDER, Registry.RESULT_SHARED_FOLDER };
 		return Stream.concat(
 				Stream.concat(Stream.concat(Arrays.stream(getFilesForImport()), Arrays.stream(getFilesForExecution())),
