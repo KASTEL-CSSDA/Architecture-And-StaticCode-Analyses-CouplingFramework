@@ -71,6 +71,7 @@ public abstract class Configuration {
 		} catch (Exception e) {
 			System.out.println("Error reading configuration file:");
 			System.out.println(e.getMessage());
+			System.out.println("Maybe the path is invalid.");
 		}
 		return null;
 	}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><configuration>
         	
-    <entrypoint>ALIGNMENT</entrypoint>
+    <entrypoint>RESOLUTION</entrypoint>
         	
     <!-- If no value is assigned a new uuid will be generated during first execution -->
     <uuid>73d0e1f6-6c1a-4d9e-9571-9c3df82e351f</uuid>

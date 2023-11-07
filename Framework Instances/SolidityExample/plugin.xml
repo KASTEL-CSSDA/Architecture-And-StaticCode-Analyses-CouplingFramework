@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="edu.kit.kastel.sdq.analysiscouplingframework.solidityexample.RunnerHandler"
+            id="edu.kit.kastel.sdq.analysiscouplingframework.solidityexample.commands.runConfig"
+            name="Run Configuration">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <separator
+               name="edu.kit.kastel.sdq.analysiscouplingframework.solidityexample.beforeseparator"
+               visible="true">
+         </separator>
+         <menu
+               id="edu.kit.kastel.sdq.analysiscouplingframework.solidityexample.menus.couplingFrameworkRunner"
+               label="Coupling Framework"
+               mnemonic="M">
+            <command
+                  commandId="edu.kit.kastel.sdq.analysiscouplingframework.solidityexample.commands.runConfig"
+                  id="edu.kit.kastel.sdq.analysiscouplingframework.solidityexample.menus.couplingFrameworkRunner"
+                  mnemonic="S"
+                  tooltip="Runs the Coupling Framework with the selected config.xml file">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate>
+                        <adapt
+                              type="org.eclipse.core.resources.IResource">
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="CONFIG.xml">
+                           </test>
+                        </adapt>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+         </menu>
+         <separator
+               name="edu.kit.kastel.sdq.analysiscouplingframework.solidityexample.afterseparator"
+               visible="true">
+         </separator>
+      </menuContribution>
+   </extension>
+
+</plugin>

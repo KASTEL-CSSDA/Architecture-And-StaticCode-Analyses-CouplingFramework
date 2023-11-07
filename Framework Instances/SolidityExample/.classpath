@@ -6,8 +6,9 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MissingRoleRelationAdder"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/SolidityRoleAdapter"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/ArchitectureAndStaticCodeAnalysisCouplingFramework"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/MissingRoleRelationAdder"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
