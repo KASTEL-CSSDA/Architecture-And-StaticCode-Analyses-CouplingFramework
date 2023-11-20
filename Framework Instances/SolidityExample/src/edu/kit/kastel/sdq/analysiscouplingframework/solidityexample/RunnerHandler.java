@@ -20,11 +20,11 @@ public class RunnerHandler <T extends IResource> extends AbstractHandler impleme
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		ISelection selection = HandlerUtil.getCurrentSelection(event);
 		List<IFile> filteredSelection = filterSelection(selection);
-		//Invoker invoker = new Invoker();
-		//invoker.invoke(filteredSelection, event, getPlugInID());
-		// TODO Auto-generated method stub
+
 		Runner runner = new Runner();
-		runner.main(null);
+		IFile file = filteredSelection.get(0);
+		
+		runner.start(file.getLocation().toString());
 		return null;
 	}
 	
