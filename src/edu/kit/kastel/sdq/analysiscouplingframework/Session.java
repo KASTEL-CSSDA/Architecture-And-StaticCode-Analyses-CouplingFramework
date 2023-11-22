@@ -25,9 +25,10 @@ public class Session {
 		this.uuid = uuid;
 	}
 
-	public void execute() {
+	public boolean execute() {
 
 		boolean running = true;
+		boolean successful = false;
 
 		while (running) {
 
@@ -45,11 +46,13 @@ public class Session {
 			} else if (!this.entrypoint.hasNext()) {
 				this.logger.print(new OKResult("Session " + this.uuid + " was executed successfully."));
 				this.resetEntrypoint();
+				successful = true;
 				running = false;
 			} else {
 				this.entrypoint = this.entrypoint.getNext();
 			}
 		}
+		return successful;
 	}
 	
 	private void resetEntrypoint() {

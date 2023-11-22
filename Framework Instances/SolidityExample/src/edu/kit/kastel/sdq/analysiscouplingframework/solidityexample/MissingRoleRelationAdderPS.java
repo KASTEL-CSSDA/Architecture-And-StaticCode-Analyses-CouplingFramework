@@ -22,7 +22,7 @@ public class MissingRoleRelationAdderPS extends IntegrationPS {
 
 	@Override
 	public Result execute() {
-		Result result = new OKResult("SolidityRoleAdapterPS: Start execute()");
+		Result result = new OKResult("MissingRoleRelationAdderPS: Start execute()");
 		int argsLength = FILES_FOR_IMPORT.length + FILES_FOR_EXPORT.length;
 		String[] args = new String[argsLength];
 		for (int i = 0; i < argsLength; i++) {

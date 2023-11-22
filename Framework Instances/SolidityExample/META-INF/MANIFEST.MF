@@ -13,4 +13,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore;bundle-version="2.33.0",
  org.eclipse.core.resources;bundle-version="3.18.200",
  ArchitectureAndStaticCodeAnalysisCouplingFramework;bundle-version="1.0.0",
- SolidityRoleAdapter;bundle-version="1.0.0"
+ SolidityRoleAdapter;bundle-version="1.0.0",
+ Partitioner

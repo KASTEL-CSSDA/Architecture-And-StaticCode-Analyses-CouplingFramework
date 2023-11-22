@@ -106,6 +106,7 @@ public abstract class Configuration {
 	public void saveEntrypointForNextExecution(Entrypoint entrypointForNextExecution) {
 		Document document = this.getDocumentByFilePath();
 
+		this.entrypoint = entrypointForNextExecution;
 		document.getElementsByTagName(TAG_NAME_ENTRYPOINT).item(0).setTextContent(entrypointForNextExecution.name());
 		
 		this.saveDocumentByFilePath(document);
