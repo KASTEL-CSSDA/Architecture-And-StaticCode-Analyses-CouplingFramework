@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CodeQLExample
+Bundle-SymbolicName: edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;bundle-version="2.33.0",
+ org.eclipse.core.resources;bundle-version="3.18.200",
+ ArchitectureAndStaticCodeAnalysisCouplingFramework;bundle-version="1.0.0",
+ Partitioner
+Import-Package: org.eclipse.emf.common.util;version="2.28.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample

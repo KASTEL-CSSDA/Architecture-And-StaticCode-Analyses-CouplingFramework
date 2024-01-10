@@ -8,8 +8,8 @@ import edu.kit.kastel.sdq.partitioner.Partitioner;
 
 public class IterationBlackboard {
 
-	Map<String, Partitioner> partitionersMapped;
-	List<Partitioner> partitionersOrdered;
+	private Map<String, Partitioner> partitionersMapped;
+	private List<Partitioner> partitionersOrdered;
 
 	public IterationBlackboard() {
 	}
@@ -23,7 +23,7 @@ public class IterationBlackboard {
 	 * shows that all iterable partitions are visited once and the process would
 	 * restart from the beginning.
 	 * 
-	 * @return true while not all partitions has been visited.
+	 * @return true while not all partitions have been visited.
 	 */
 	public boolean incrementPartitioners() {
 

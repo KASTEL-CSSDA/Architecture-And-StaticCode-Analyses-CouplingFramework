@@ -8,6 +8,7 @@ Bundle-ClassPath: ArchitectureAndStaticCodeAnalysisCouplingFramework.jar,
 Automatic-Module-Name: ArchitectureAndStaticCodeAnalysisCouplingFramework
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: edu.kit.kastel.sdq.analysiscouplingframework,
+ edu.kit.kastel.sdq.analysiscouplingframework.adapter,
  edu.kit.kastel.sdq.analysiscouplingframework.exceptions,
  edu.kit.kastel.sdq.analysiscouplingframework.iterative,
  edu.kit.kastel.sdq.analysiscouplingframework.parser,

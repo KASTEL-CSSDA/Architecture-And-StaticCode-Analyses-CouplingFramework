@@ -3,6 +3,7 @@ package edu.kit.kastel.sdq.analysiscouplingframework.processing.steps;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.IDVerifier;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.NecessaryFile;
@@ -84,11 +85,23 @@ public abstract class ProcessingStep {
 	/**
 	 * This is the main part an implementation must complete. In this method the
 	 * corresponding projects which are connected by this framework should be
-	 * executed by scriptcalls or other running mechanisms.
+	 * executed by their adapters. <br>
+	 * For this, a concrete ProcessingStep must implement both the internal called methods:<br><br>
+	 * - getDefinedExecutableProcessingStepAdapter()<br>
+	 * (for specifying/referencing the adapter of the external project)<br><br>
+	 * and<br><br>
+	 * - getArgsForExecution()<br>
+	 * (for constructing the inputparameter for the adapter)
 	 * 
 	 * @return OKResult or NotOKResult
 	 */
-	public abstract Result execute();
+	public final Result execute() {
+		return this.getDefinedExecutableProcessingStepAdapter().executeAdapter(this.getArgsForExecution());
+	}
+
+	protected abstract ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter();
+
+	protected abstract String[] getArgsForExecution();
 
 	/**
 	 * For each NecessaryFile of getFilesForExport() copy it to the TempSharedFolder
@@ -190,8 +203,8 @@ public abstract class ProcessingStep {
 
 	/**
 	 * Concats all necessaryIDs of this ProcessingStep. getFilesForImport() +
-	 * getFilesForExecution() + getFilesForExport() + Registry.TEMP_SHARED_FOLDER
-	 * + Registry.RESULT_SHARED_FOLDER
+	 * getFilesForExecution() + getFilesForExport() + Registry.TEMP_SHARED_FOLDER +
+	 * Registry.RESULT_SHARED_FOLDER
 	 * 
 	 * @return an ordered Array with all IDs named above
 	 */
