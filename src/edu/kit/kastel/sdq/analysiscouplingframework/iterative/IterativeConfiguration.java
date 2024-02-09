@@ -5,18 +5,19 @@ import java.util.List;
 
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Configuration;
 import edu.kit.kastel.sdq.partitioner.Partitioner;
+import edu.kit.kastel.sdq.partitioner.blackboard.PartitionerBlackboard;
 import edu.kit.kastel.sdq.partitioner.json.PartitionerParsingFactory;
 
 public abstract class IterativeConfiguration extends Configuration {
 
 	protected final String partitionerJSONFilePath;
-	protected IterationBlackboard blackboard;
+	protected PartitionerBlackboard blackboard;
 	protected PartitionerParsingFactory ppFactory;
 
 	public IterativeConfiguration(String configFilePath, String partitionerJSONFilePath) {
 		super(configFilePath);
 		this.partitionerJSONFilePath = partitionerJSONFilePath;
-		this.blackboard = new IterationBlackboard();
+		this.blackboard = new PartitionerBlackboard();
 		this.ppFactory = new PartitionerParsingFactory(partitionerJSONFilePath);
 		this.loadPartitionersOrInitializeWithDefault();
 	}
@@ -51,7 +52,7 @@ public abstract class IterativeConfiguration extends Configuration {
 		this.savePartitioners(new ArrayList<Partitioner>());
 	}
 
-	public IterationBlackboard getIterationBlackboard() {
+	public PartitionerBlackboard getPartitionerBlackboard() {
 		return this.blackboard;
 	}
 

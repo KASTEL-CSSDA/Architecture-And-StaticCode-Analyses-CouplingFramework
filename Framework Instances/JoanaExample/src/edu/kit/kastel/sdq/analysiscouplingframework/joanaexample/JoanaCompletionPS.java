@@ -1,18 +1,20 @@
 package edu.kit.kastel.sdq.analysiscouplingframework.joanaexample;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 import edu.kit.kastel.sdq.analysiscouplingframework.adapter.DummyAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.CompletionPS;
-import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.WaitForManualActionWorkflow;
+import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.DefaultWorkflow;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
+import edu.kit.kastel.sdq.coupling.completion.specificationtransfer.adapter.SpecificationTransferAdapter;
 
 public class JoanaCompletionPS extends CompletionPS {
 
-	static final String[] FILES_FOR_IMPORT = {};
-	static final String[] FILES_FOR_EXECUTION = {};
-	static final String[] FILES_FOR_EXPORT = {};
+	protected static final String[] ARG_IDS = { "SPECIFICATION_SRC_DIR", "IMPLEMENTATION_SRC_DIR", "OUTPUT_BASE_PATH" };
 
 	public JoanaCompletionPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);
@@ -20,34 +22,38 @@ public class JoanaCompletionPS extends CompletionPS {
 
 	@Override
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
-		return new DummyAdapter("JoanaCompletionPS");
+		//return new DummyAdapter("JoanaCompletionPS");
+		return new SpecificationTransferAdapter();
 	}
 
 	@Override
 	protected String[] getArgsForExecution() {
-		return null;
+		// args[0] = success message, args[1] = failure message
+		// all other ordered args are the paths of the IDs taken from the registry
+		return Stream.concat(
+				Arrays.stream(new String[] { "JoanaCompletionPS: execution successful.",
+						"JoanaCompletionPS: execution not successful: " }),
+				Arrays.stream(ARG_IDS).map(e -> super.registry.getFileForID(e).getPath())).toArray(String[]::new);
 	}
 
 	@Override
 	public Workflow getWorkflow() {
-		return new WaitForManualActionWorkflow(this,
-				"ManualCodeCompletionPS: It is necessary to manually perform following action to continue: Put edited files into folder X",
-				"ManualCodeCompletionPS: manual action performed", "ManualCodeCompletionPS: manual action not performed");
+		return new DefaultWorkflow(this);
 	}
 
 	@Override
 	protected String[] getFilesForImport() {
-		return FILES_FOR_IMPORT;
+		return new String[] {};
 	}
 
 	@Override
 	protected String[] getFilesForExecution() {
-		return FILES_FOR_EXECUTION;
+		return new String[] {};
 	}
 
 	@Override
 	protected String[] getFilesForExport() {
-		return FILES_FOR_EXPORT;
+		return new String[] {};
 	}
 
 }

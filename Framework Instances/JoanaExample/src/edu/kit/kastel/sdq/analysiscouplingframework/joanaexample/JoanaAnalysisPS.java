@@ -3,6 +3,7 @@ package edu.kit.kastel.sdq.analysiscouplingframework.joanaexample;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+import edu.kit.kastel.sdq.analysiscouplingframework.adapter.DummyAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
@@ -23,6 +24,7 @@ public class JoanaAnalysisPS extends AnalysisPS {
 
 	@Override
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
+		//return new DummyAdapter("JoanaAnalysisPS");
 		return new JoanaExecutionAdapter();
 	}
 

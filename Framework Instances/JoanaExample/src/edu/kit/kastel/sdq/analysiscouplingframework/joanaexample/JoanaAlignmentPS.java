@@ -3,6 +3,7 @@ package edu.kit.kastel.sdq.analysiscouplingframework.joanaexample;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+import edu.kit.kastel.sdq.analysiscouplingframework.adapter.DummyAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
@@ -14,7 +15,8 @@ import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.adapter.Access
 public class JoanaAlignmentPS extends AlignmentPS {
 
 	protected static final String[] ARG_IDS = { "JOANA_EVAL_CODE_FOLDER_NAME", "USER_SPECIFIC_REPO_PATH",
-			"EVAL_REPO_SPECIFIC_PATH", "TRAVELPLANNER_PCM_MODEL_BASE_PATH", "TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER" };
+			"EVAL_REPO_SPECIFIC_PATH", "TRAVELPLANNER_PCM_MODEL_BASE_PATH", "TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER",
+			"BASE_PACKAGE_NAME" };
 
 	public JoanaAlignmentPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);
@@ -22,6 +24,7 @@ public class JoanaAlignmentPS extends AlignmentPS {
 
 	@Override
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
+		//return new DummyAdapter("JoanaAlignmentPS");
 		return new AccessAnalysis2JoanaAdapter();
 	}
 

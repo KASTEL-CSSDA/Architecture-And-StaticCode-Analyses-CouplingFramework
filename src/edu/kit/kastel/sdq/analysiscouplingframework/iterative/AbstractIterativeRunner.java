@@ -1,6 +1,8 @@
 package edu.kit.kastel.sdq.analysiscouplingframework.iterative;
 
 import edu.kit.kastel.sdq.analysiscouplingframework.AnalysisCouplingFramework;
+import edu.kit.kastel.sdq.partitioner.blackboard.PartitionerBlackboard;
+import edu.kit.kastel.sdq.partitioner.blackboard.PartitionerIncrementer;
 
 /**
  * In your implementing package, just override the method createConfiguration()
@@ -27,7 +29,8 @@ public abstract class AbstractIterativeRunner {
 
 		IterativeConfiguration config = createConfiguration(configFilePath, partitionerJSONFilePath);
 
-		IterationBlackboard blackboard = config.getIterationBlackboard();
+		PartitionerBlackboard blackboard = config.getPartitionerBlackboard();
+		PartitionerIncrementer incrementer = new PartitionerIncrementer();
 
 		while (true) {
 			// run framework
@@ -36,7 +39,7 @@ public abstract class AbstractIterativeRunner {
 				break;
 			}
 			// increment partitioners
-			if (blackboard.incrementPartitioners() == false) {
+			if (incrementer.incrementPartitionersOfBlackboard(blackboard) == false) {
 				config.cleanCurrentStateOfPartitioners();
 				break;
 			}

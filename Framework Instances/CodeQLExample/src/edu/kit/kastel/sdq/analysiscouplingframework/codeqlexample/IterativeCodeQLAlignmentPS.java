@@ -6,20 +6,20 @@ import java.util.stream.Stream;
 import edu.kit.kastel.sdq.analysiscouplingframework.adapter.DummyAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
-import edu.kit.kastel.sdq.analysiscouplingframework.iterative.IterationBlackboard;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.AlignmentPS;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.DefaultWorkflow;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
+import edu.kit.kastel.sdq.partitioner.blackboard.PartitionerBlackboard;
 
 public class IterativeCodeQLAlignmentPS extends AlignmentPS {
 	static final String[] FILES_FOR_IMPORT = {};
 	static final String[] FILES_FOR_EXECUTION = {};
 	static final String[] FILES_FOR_EXPORT = {};
 	static final String[] IDS_OF_NECCESSARY_PARTITIONERS = { "partitioner" };
-	private IterationBlackboard blackboard;
+	private PartitionerBlackboard blackboard;
 
-	public IterativeCodeQLAlignmentPS(Registry registry, IterationBlackboard blackboard)
+	public IterativeCodeQLAlignmentPS(Registry registry, PartitionerBlackboard blackboard)
 			throws MissingPathIdentifierException {
 		super(registry);
 		this.blackboard = blackboard;
