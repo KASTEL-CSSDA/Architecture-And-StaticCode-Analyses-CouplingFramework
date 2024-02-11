@@ -18,13 +18,13 @@ public class IterativeAccessanalysisJoanaConfiguration extends IterativeConfigur
 
 	@Override
 	protected List<Partitioner> getDefaultPartitionersOrdered() {
-		Partitioner pEntry = new TrivialPartitioner("partitioner_entrypoints");
-		//Partitioner pEntry = new TrivialPartitioner("partitioner_entrypoints");
+		Partitioner pEntry = new LinearSingleElementPartitioner("partitioner_entrypoints");
 		Partitioner pSrcs = new TrivialPartitioner("partitioner_sources");
-		Partitioner pSinks = new LinearSingleElementPartitioner("partitioner_sinks");
-		
-		//return Arrays.asList(pSinks, pSrcs, pEntry);
-		return Arrays.asList(pSinks, pEntry);
+		Partitioner pSinks = new TrivialPartitioner("partitioner_sinks");
+
+		// specifies the behaviour of the iterative execution, by ordering the
+		// partitioners and giving them a specific type.
+		return Arrays.asList(pSinks, pSrcs, pEntry);
 	}
 
 	@Override

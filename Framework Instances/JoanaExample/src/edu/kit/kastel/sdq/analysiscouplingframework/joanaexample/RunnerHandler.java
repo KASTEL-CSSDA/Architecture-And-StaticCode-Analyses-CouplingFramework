@@ -14,6 +14,13 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 
+/**
+ * The Handler is the entrypoint for the Plugin execution via UI command.
+ * 
+ * @author Jonas Lehmann
+ *
+ * @param <T> Type of IResource, for the UIs selection, which should be a file CONFIG.xml
+ */
 public class RunnerHandler <T extends IResource> extends AbstractHandler implements IHandler {
 
 	@Override

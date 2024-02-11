@@ -15,6 +15,9 @@ public class IterativeRunner extends AbstractIterativeRunner {
 		new IterativeRunner().start(CONFIG_FILE_PATH, CONFIG_FILE_PATH_OF_JSON);
 	}
 
+	/**
+	 * Overrides the super method to surround it with a runtime measuring functionality
+	 */
 	@Override
 	public void start(String configFilePath, String partitionerJSONFilePath) {
 		this.startTimeMeasurement();
