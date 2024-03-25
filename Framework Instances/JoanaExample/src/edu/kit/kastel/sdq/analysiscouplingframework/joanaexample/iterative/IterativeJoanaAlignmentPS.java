@@ -19,8 +19,6 @@ public class IterativeJoanaAlignmentPS extends JoanaAlignmentPS {
 
 	@Override
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
-		// return new DummyAdapter("JoanaAlignmentPS");
-		// return new AccessAnalysis2JoanaAdapter();
 		return new IterativeAccessAnalysis2JoanaAdapter(this.blackboard);
 	}
 

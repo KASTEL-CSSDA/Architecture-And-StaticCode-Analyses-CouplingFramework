@@ -1,4 +1,4 @@
-package edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample;
+package edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.iterative;
 
 import edu.kit.kastel.sdq.analysiscouplingframework.iterative.AbstractIterativeRunner;
 import edu.kit.kastel.sdq.analysiscouplingframework.iterative.IterativeConfiguration;

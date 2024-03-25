@@ -5,7 +5,7 @@ import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessing
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.CompletionPS;
-import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.WaitForManualActionWorkflow;
+import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.DefaultWorkflow;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
 
 public class CodeQLCompletionPS extends CompletionPS {
@@ -20,7 +20,7 @@ public class CodeQLCompletionPS extends CompletionPS {
 
 	@Override
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
-		return new DummyAdapter("ManualCodeCompletionPS");
+		return new DummyAdapter("CodeQLCompletionPS");
 	}
 
 	@Override
@@ -30,9 +30,7 @@ public class CodeQLCompletionPS extends CompletionPS {
 
 	@Override
 	public Workflow getWorkflow() {
-		return new WaitForManualActionWorkflow(this,
-				"ManualCodeCompletionPS: It is necessary to manually perform following action to continue: Put edited files into folder X",
-				"ManualCodeCompletionPS: manual action performed", "ManualCodeCompletionPS: manual action not performed");
+		return new DefaultWorkflow(this);
 	}
 
 	@Override

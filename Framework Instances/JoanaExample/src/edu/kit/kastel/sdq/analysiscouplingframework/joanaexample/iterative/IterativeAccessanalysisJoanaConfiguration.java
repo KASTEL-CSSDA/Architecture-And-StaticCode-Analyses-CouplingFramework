@@ -21,10 +21,11 @@ public class IterativeAccessanalysisJoanaConfiguration extends IterativeConfigur
 		Partitioner pEntry = new TrivialPartitioner("partitioner_entrypoints");
 		//Partitioner pEntry = new TrivialPartitioner("partitioner_entrypoints");
 		Partitioner pSrcs = new TrivialPartitioner("partitioner_sources");
-		Partitioner pSinks = new LinearSingleElementPartitioner("partitioner_sinks");
+		Partitioner pSinks = new TrivialPartitioner("partitioner_sinks");
+		Partitioner pLevels = new LinearSingleElementPartitioner("partitioner_levels");
 		
-		//return Arrays.asList(pSinks, pSrcs, pEntry);
-		return Arrays.asList(pSinks, pEntry);
+		return Arrays.asList(pLevels, pSrcs, pSinks, pEntry);
+		//return Arrays.asList(pEntry);
 	}
 
 	@Override

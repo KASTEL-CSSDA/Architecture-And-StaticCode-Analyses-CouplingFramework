@@ -1,4 +1,4 @@
-package edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample;
+package edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.iterative;
 
 import java.util.Arrays;
 import java.util.stream.Stream;

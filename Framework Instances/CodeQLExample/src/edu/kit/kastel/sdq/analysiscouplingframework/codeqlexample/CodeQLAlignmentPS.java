@@ -6,31 +6,24 @@ import java.util.stream.Stream;
 import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
-import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.AnalysisPS;
+import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.AlignmentPS;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.DefaultWorkflow;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
-import edu.kit.kastel.sdq.coupling.analysis.codeqlexecution.adapter.CodeQLExecutionAdapter;
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.adapter.AccessAnalysis2CodeQLAdapter;
 
-public class CodeQLAnalysisPS extends AnalysisPS {
+public class CodeQLAlignmentPS extends AlignmentPS {
 
-	// codeQLCLIPath
-	// dBLocation =
-	// CaseStudies\Systems\TravelPlanner\Code\edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code\TravelPlannerCodeQLDB
-	// sourceCodePath =
-	// Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code
-	// codeQLQuery = ./CodeQLQuery/AccessAnalysisLabeledTaintTracking.ql
-	// outputFileName = SCAR/CodeQL/codeQLAccessAnalysisOutput.sarif
-	protected static final String[] ARG_IDS = { "CODEQL_CLI_PATH", "DB_LOCATION", "SOURCECODE_PATH", "CODEQL_QUERY",
-			"OUTPUT_FILENAME" };
+	protected static final String[] ARG_IDS = { "USER_SPECIFIC_REPO_PATH", "EVAL_REPO_SPECIFIC_PATH",
+			"PCM_MODEL_BASE_PATH", "CODEQL_MODELS_BASEFOLDER", "BASE_PACKAGE_NAME" };
 
-	public CodeQLAnalysisPS(Registry registry) throws MissingPathIdentifierException {
+	public CodeQLAlignmentPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);
 	}
 
 	@Override
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
-		// return new DummyAdapter("CodeQLAnalysisPS");
-		return new CodeQLExecutionAdapter();
+		// return new DummyAdapter("CodeQLAlignmentPS");
+		return new AccessAnalysis2CodeQLAdapter();
 	}
 
 	@Override
@@ -38,8 +31,8 @@ public class CodeQLAnalysisPS extends AnalysisPS {
 		// args[0] = success message, args[1] = failure message
 		// all other ordered args are the paths of the IDs taken from the registry
 		return Stream.concat(
-				Arrays.stream(new String[] { "CodeQLAnalysisPS: execution successful.",
-						"CodeQLAnalysisPS: execution not successful: " }),
+				Arrays.stream(new String[] { "CodeQLAlignmentPS: execution successful.",
+						"CodeQLAlignmentPS: execution not successful: " }),
 				Arrays.stream(ARG_IDS).map(e -> super.registry.getFileForID(e).getPath())).toArray(String[]::new);
 	}
 

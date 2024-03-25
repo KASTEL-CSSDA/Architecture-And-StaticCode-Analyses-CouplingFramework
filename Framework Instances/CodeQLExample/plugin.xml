@@ -4,13 +4,13 @@
 <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.RunnerHandler"
-            id="edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.commands.runConfig"
+            defaultHandler="edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.RunnerHandler"
+            id="edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.commands.runConfig"
             name="Run Configuration">
       </command>
       <command
-            defaultHandler="edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.iterative.IterativeRunnerHandler"
-            id="edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.commands.runIterativeConfig"
+            defaultHandler="edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.iterative.IterativeRunnerHandler"
+            id="edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.commands.runIterativeConfig"
             name="Run Configuration (iterative)">
       </command>
    </extension>
@@ -20,18 +20,18 @@
             allPopups="false"
             locationURI="popup:org.eclipse.ui.popup.any?after=additions">
          <separator
-               name="edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.beforeseparator"
+               name="edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.beforeseparator"
                visible="true">
          </separator>
          <menu
-               id="edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.menus.couplingFrameworkRunner"
-               label="Coupling Framework for Joana"
+               id="edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.menus.couplingFrameworkRunner"
+               label="Coupling Framework for CodeQL"
                mnemonic="M">
             <command
-                  commandId="edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.commands.runConfig"
-                  id="edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.menus.couplingFrameworkRunner"
+                  commandId="edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.commands.runConfig"
+                  id="edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.menus.couplingFrameworkRunner"
                   mnemonic="S"
-                  tooltip="Runs the Coupling Framework with the selected config.xml file">
+                  tooltip="Runs the Coupling Framework for CodeQL with the selected config.xml file">
                <visibleWhen
                      checkEnabled="false">
                   <with
@@ -49,10 +49,10 @@
                </visibleWhen>
             </command>
             <command
-                  commandId="edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.commands.runIterativeConfig"
-                  id="edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.menus.couplingFrameworkRunner"
+                  commandId="edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.commands.runIterativeConfig"
+                  id="edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.menus.couplingFrameworkRunner"
                   mnemonic="S"
-                  tooltip="Runs the Coupling Framework with the selected config.xml file and iteration_config.json file">
+                  tooltip="Runs the Coupling Framework for CodeQL with the selected config.xml file and iteration_config.json file">
                <visibleWhen
                      checkEnabled="false">
                   <with
@@ -82,10 +82,9 @@
             </command>
          </menu>
          <separator
-               name="edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.afterseparator"
+               name="edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.afterseparator"
                visible="true">
          </separator>
       </menuContribution>
    </extension>
-
 </plugin>

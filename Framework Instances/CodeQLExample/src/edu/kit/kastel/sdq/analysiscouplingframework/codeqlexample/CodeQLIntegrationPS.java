@@ -1,18 +1,21 @@
 package edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample;
 
-import edu.kit.kastel.sdq.analysiscouplingframework.adapter.DummyAdapter;
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.IntegrationPS;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.DefaultWorkflow;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
+import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.adapter.CodeQLResult2AccessAnalysisAdapter;
 
 public class CodeQLIntegrationPS extends IntegrationPS {
 
-	static final String[] FILES_FOR_IMPORT = {};
-	static final String[] FILES_FOR_EXECUTION = {};
-	static final String[] FILES_FOR_EXPORT = {};
+	protected static final String[] ARG_IDS = { "JAVA_MODEL_PATH", "CODEQL_MODEL_PATH",
+			"PCMJAVACORRESPONDENCE_MODEL_PATH", "CODEQL_RESULT_FILE_PATH", "REPOSITORY_MODEL_PATH",
+			"CONFIDENTIALITY_SPECIFICATION_MODEL_PATH" };
 
 	public CodeQLIntegrationPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);
@@ -20,12 +23,18 @@ public class CodeQLIntegrationPS extends IntegrationPS {
 
 	@Override
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
-		return new DummyAdapter("CodeQLIntegrationPS");
+		// return new DummyAdapter("CodeQLIntegrationPS");
+		return new CodeQLResult2AccessAnalysisAdapter();
 	}
 
 	@Override
 	protected String[] getArgsForExecution() {
-		return null;
+		// args[0] = success message, args[1] = failure message
+		// all other ordered args are the paths of the IDs taken from the registry
+		return Stream.concat(
+				Arrays.stream(new String[] { "CodeQLIntegrationPS: execution successful.",
+						"CodeQLIntegrationPS: execution not successful: " }),
+				Arrays.stream(ARG_IDS).map(e -> super.registry.getFileForID(e).getPath())).toArray(String[]::new);
 	}
 
 	@Override
@@ -35,17 +44,17 @@ public class CodeQLIntegrationPS extends IntegrationPS {
 
 	@Override
 	protected String[] getFilesForImport() {
-		return FILES_FOR_IMPORT;
+		return new String[] {};
 	}
 
 	@Override
 	protected String[] getFilesForExecution() {
-		return FILES_FOR_EXECUTION;
+		return new String[] {};
 	}
 
 	@Override
 	protected String[] getFilesForExport() {
-		return FILES_FOR_EXPORT;
+		return new String[] {};
 	}
 
 }

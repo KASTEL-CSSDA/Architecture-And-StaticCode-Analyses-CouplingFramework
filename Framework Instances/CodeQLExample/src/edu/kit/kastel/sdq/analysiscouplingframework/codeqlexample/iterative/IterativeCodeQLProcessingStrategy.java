@@ -1,5 +1,9 @@
-package edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample;
+package edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.iterative;
 
+import edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.CodeQLAnalysisPS;
+import edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.CodeQLCompletionPS;
+import edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.CodeQLIntegrationPS;
+import edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.CodeQLResolutionPS;
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.ProcessingStrategy;
