@@ -3,20 +3,19 @@ package edu.kit.kastel.sdq.analysiscouplingframework.joanaexample;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-import edu.kit.kastel.sdq.analysiscouplingframework.adapter.DummyAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.IntegrationPS;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.DefaultWorkflow;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
-import edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.adapter.JoanaResult2AccessAnalysisAdapter;
+import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.iterative.Joana2AccessAnalysisAdapter;
 
 public class JoanaIntegrationPS extends IntegrationPS {
 
 	protected static final String[] ARG_IDS = { "JAVA_MODEL_PATH", "JOANA_MODEL_PATH",
-			"PCMJAVACORRESPONDENCE_MODEL_PATH", "JOANA_RESULT_FILE_PATH", "REPOSITORY_MODEL_PATH",
-			"CONFIDENTIALITY_SPECIFICATION_MODEL_PATH" };
+			"CORRESPONDENCE_MODEL_PATH", "JOANA_RESULT_FILE_PATH", "REPOSITORY_MODEL_PATH",
+			"CONFIDENTIALITY_SPECIFICATION_MODEL_PATH", "POLICY_STYLE", "ORIGIN_BACKUP_PATH" };
 
 	public JoanaIntegrationPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);
@@ -25,7 +24,7 @@ public class JoanaIntegrationPS extends IntegrationPS {
 	@Override
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
 		//return new DummyAdapter("JoanaIntegrationPS");
-		return new JoanaResult2AccessAnalysisAdapter();
+		return new Joana2AccessAnalysisAdapter();
 	}
 
 	@Override

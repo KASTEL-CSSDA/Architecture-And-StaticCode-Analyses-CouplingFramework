@@ -3,20 +3,19 @@ package edu.kit.kastel.sdq.analysiscouplingframework.joanaexample;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-import edu.kit.kastel.sdq.analysiscouplingframework.adapter.DummyAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.AlignmentPS;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.DefaultWorkflow;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.adapter.AccessAnalysis2JoanaAdapter;
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.iterative.AccessAnalysis2JoanaAdapter;
 
 public class JoanaAlignmentPS extends AlignmentPS {
 
-	protected static final String[] ARG_IDS = { "JOANA_EVAL_CODE_FOLDER_NAME", "USER_SPECIFIC_REPO_PATH",
-			"EVAL_REPO_SPECIFIC_PATH", "TRAVELPLANNER_PCM_MODEL_BASE_PATH", "TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER",
-			"BASE_PACKAGE_NAME" };
+	protected static final String[] ARG_IDS = { "REPOSITORY_PATH", "CONFIDENTIALITY_MODEL_PATH",
+			"JAVA_CODE_BASE_PATH", "CODE_BASE_PACKAGE_NAME", "JAVA_MODEL_PATH",
+			"JOANA_MODEL_PATH", "CORRESPONDENCE_MODEL_PATH", "CASESTUDY_NAME" };
 
 	public JoanaAlignmentPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);
