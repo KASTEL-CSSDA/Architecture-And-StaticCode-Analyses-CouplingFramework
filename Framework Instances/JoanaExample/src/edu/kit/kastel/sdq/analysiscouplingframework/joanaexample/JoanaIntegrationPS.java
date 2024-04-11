@@ -1,6 +1,8 @@
 package edu.kit.kastel.sdq.analysiscouplingframework.joanaexample;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
@@ -13,9 +15,10 @@ import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.iterative
 
 public class JoanaIntegrationPS extends IntegrationPS {
 
-	protected static final String[] ARG_IDS = { "JAVA_MODEL_PATH", "JOANA_MODEL_PATH",
-			"CORRESPONDENCE_MODEL_PATH", "JOANA_RESULT_FILE_PATH", "REPOSITORY_MODEL_PATH",
-			"CONFIDENTIALITY_SPECIFICATION_MODEL_PATH", "POLICY_STYLE", "ORIGIN_BACKUP_PATH" };
+	protected static final String USER_SPECIFIC_PATH = "USER_SPECIFIC_PATH";
+	protected static final String[] ARG_IDS = { "JAVA_MODEL_PATH", "JOANA_MODEL_PATH", "CORRESPONDENCE_MODEL_PATH",
+			"JOANA_RESULT_FILE_PATH", "REPOSITORY_MODEL_PATH", "CONFIDENTIALITY_SPECIFICATION_MODEL_PATH",
+			"POLICY_STYLE", "ORIGIN_BACKUP_PATH" };
 
 	public JoanaIntegrationPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);
@@ -23,18 +26,27 @@ public class JoanaIntegrationPS extends IntegrationPS {
 
 	@Override
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
-		//return new DummyAdapter("JoanaIntegrationPS");
+		// return new DummyAdapter("JoanaIntegrationPS");
 		return new Joana2AccessAnalysisAdapter();
 	}
 
 	@Override
 	protected String[] getArgsForExecution() {
+		String pathPrefix = super.registry.getFileForID(USER_SPECIFIC_PATH).getPath();
+
+		List<String> relPaths1 = Arrays.stream(Arrays.copyOfRange(ARG_IDS, 0, 6))
+				.map(e -> pathPrefix + super.registry.getFileForID(e).getPath()).collect(Collectors.toList());
+		String absPath1 = super.registry.getFileForID(ARG_IDS[6]).getPath();
+		List<String> relPaths2 = Arrays.stream(Arrays.copyOfRange(ARG_IDS, 7, 8))
+				.map(e -> pathPrefix + super.registry.getFileForID(e).getPath()).collect(Collectors.toList());
+
+		relPaths1.add(absPath1);
+		relPaths1.addAll(relPaths2);
+
 		// args[0] = success message, args[1] = failure message
 		// all other ordered args are the paths of the IDs taken from the registry
-		return Stream.concat(
-				Arrays.stream(new String[] { "JoanaIntegrationPS: execution successful.",
-						"JoanaIntegrationPS: execution not successful: " }),
-				Arrays.stream(ARG_IDS).map(e -> super.registry.getFileForID(e).getPath())).toArray(String[]::new);
+		return Stream.concat(Arrays.stream(new String[] { "JoanaIntegrationPS: execution successful.",
+				"JoanaIntegrationPS: execution not successful: " }), relPaths1.stream()).toArray(String[]::new);
 	}
 
 	@Override

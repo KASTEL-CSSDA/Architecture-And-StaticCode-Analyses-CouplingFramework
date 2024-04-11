@@ -13,6 +13,7 @@ import edu.kit.kastel.sdq.coupling.completion.specificationtransfer.adapter.Spec
 
 public class JoanaCompletionPS extends CompletionPS {
 
+	protected static final String USER_SPECIFIC_PATH = "USER_SPECIFIC_PATH";
 	protected static final String[] ARG_IDS = { "SPECIFICATION_SRC_DIR", "IMPLEMENTATION_SRC_DIR", "OUTPUT_BASE_PATH" };
 
 	public JoanaCompletionPS(Registry registry) throws MissingPathIdentifierException {
@@ -27,12 +28,13 @@ public class JoanaCompletionPS extends CompletionPS {
 
 	@Override
 	protected String[] getArgsForExecution() {
+		String pathPrefix = super.registry.getFileForID(USER_SPECIFIC_PATH).getPath();
 		// args[0] = success message, args[1] = failure message
 		// all other ordered args are the paths of the IDs taken from the registry
 		return Stream.concat(
 				Arrays.stream(new String[] { "JoanaCompletionPS: execution successful.",
 						"JoanaCompletionPS: execution not successful: " }),
-				Arrays.stream(ARG_IDS).map(e -> super.registry.getFileForID(e).getPath())).toArray(String[]::new);
+				Arrays.stream(ARG_IDS).map(e -> pathPrefix + super.registry.getFileForID(e).getPath())).toArray(String[]::new);
 	}
 
 	@Override

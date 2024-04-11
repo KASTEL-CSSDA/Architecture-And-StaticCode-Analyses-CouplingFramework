@@ -1,8 +1,10 @@
 package edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.iterative;
 
+import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.JoanaIntegrationPS;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
+import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.iterative.IterativeJoana2AccessAnalysisAdapter;
 import edu.kit.kastel.sdq.partitioner.blackboard.PartitionerBlackboard;
 import edu.kit.kastel.sdq.partitioner.blackboard.PartitionerStateRepresentation;
 
@@ -16,6 +18,11 @@ public class IterativeJoanaIntegrationPS extends JoanaIntegrationPS {
 			throws MissingPathIdentifierException {
 		super(registry);
 		this.blackboard = blackboard;
+	}
+	
+	@Override
+	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
+		return new IterativeJoana2AccessAnalysisAdapter();
 	}
 
 	@Override

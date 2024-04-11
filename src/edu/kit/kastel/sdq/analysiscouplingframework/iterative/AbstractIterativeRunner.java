@@ -34,12 +34,14 @@ public abstract class AbstractIterativeRunner {
 
 		while (true) {
 			// run framework
-			if (framework.run(config) == false) {
+			boolean exitedSuccessfully = framework.run(config);
+			if (!exitedSuccessfully) {
 				config.saveCurrentStateOfPartitioners();
 				break;
 			}
 			// increment partitioners
-			if (incrementer.incrementPartitionersOfBlackboard(blackboard) == false) {
+			boolean stillSomeIterationsLeft = incrementer.incrementPartitionersOfBlackboard(blackboard);
+			if (!stillSomeIterationsLeft) {
 				config.cleanCurrentStateOfPartitioners();
 				break;
 			}

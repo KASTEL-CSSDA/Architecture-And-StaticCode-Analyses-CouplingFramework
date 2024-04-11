@@ -5,42 +5,58 @@
     <!-- If no value is assigned a new uuid will be generated during first execution -->
     <uuid>73d0e1f6-6c1a-4d9e-9571-9c3df82e351f</uuid>
     
-    <tempSharedFolder>C:/Users/legua/Documents/HIWI/Eclipse/Workspace/Architecture-And-StaticCode-Analyses-CouplingFramework/Framework Instances/SolidityExample/mocking folders for testing/TEMP</tempSharedFolder>
-    <resultSharedFolder>C:/Users/legua/Documents/HIWI/Eclipse/Workspace/Architecture-And-StaticCode-Analyses-CouplingFramework/Framework Instances/SolidityExample/mocking folders for testing/RESULT</resultSharedFolder>
+    <!-- Can be empty -->
+    <tempSharedFolder/>
+    <resultSharedFolder/>
         	
     <pathsOfIDs>
+    	<!-- 4 Absolut User Specific Paths, must be adjusted to local machine-->
+        <pathOfID id="USER_SPECIFIC_PATH">C:/Users/legua/eclipse/Current_MT_2020-12/repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/</pathOfID>
+        <pathOfID id="JAVA8_COMPILER_LOCATION">C:/Users/legua/eclipse/Current_MT_2020-12/repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Tools/openjdk-8u392-b08-windows-64/bin/javac</pathOfID>
+        <pathOfID id="JAVA8_RUNTIME_LOCATION">C:/Users/legua/eclipse/Current_MT_2020-12/repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Tools/openjdk-8u392-b08-windows-64/bin/java</pathOfID>
+        <pathOfID id="JOANA_CLI_LOCATION">C:/Users/legua/eclipse/Current_MT_2020-12/repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Tools/joana.ui.ifc.wala.cli.jar</pathOfID>
         
+        <!-- Partitioner Default Types, choose between: {TrivialPartitioner, LinearSingleElementPartitioner} -->
+        <pathOfID id="partitioner_entrypoints">TrivialPartitioner</pathOfID>
+        <pathOfID id="partitioner_sources">TrivialPartitioner</pathOfID>
+        <pathOfID id="partitioner_sinks">TrivialPartitioner</pathOfID>
+        <pathOfID id="partitioner_levels">TrivialPartitioner</pathOfID>
+        
+        
+        
+        <!-- all following paths/IDs are relative, must not be adjusted to local machine, only to different case studies-->
         <!-- JOANA Alignment -->
-        <pathOfID id="JOANA_EVAL_CODE_FOLDER_NAME">edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis</pathOfID>
-        <pathOfID id="USER_SPECIFIC_REPO_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos</pathOfID>
-        <pathOfID id="EVAL_REPO_SPECIFIC_PATH">CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner</pathOfID>
-        <pathOfID id="TRAVELPLANNER_PCM_MODEL_BASE_PATH">Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis</pathOfID>
-        <pathOfID id="TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER">edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis</pathOfID>
-        <pathOfID id="BASE_PACKAGE_NAME">edu.kit.kastel.sdq.coupling.casestudy.travelplanner</pathOfID>
+        <pathOfID id="REPOSITORY_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/travelplanner.repository</pathOfID>
+        <pathOfID id="CONFIDENTIALITY_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/travelplanner.confidentiality</pathOfID>
+        <pathOfID id="JAVA_CODE_BASE_PATH">TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis</pathOfID>
+        <pathOfID id="CODE_BASE_PACKAGE_NAME">edu.kit.kastel.sdq.coupling.casestudy.travelplanner</pathOfID>
+        <pathOfID id="JAVA_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis/java4accessanalysis.java</pathOfID>
+        <pathOfID id="JOANA_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis/joana4accessanalysis.joana</pathOfID>
+        <pathOfID id="CORRESPONDENCE_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis/pcmjava4accessanalysis.pcmjavacorrespondence</pathOfID>
+        <pathOfID id="POLICY_STYLE">Disjunctive</pathOfID>
         
         <!-- JOANA Completion -->
-        <pathOfID id="SPECIFICATION_SRC_DIR">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis/src</pathOfID>
-        <pathOfID id="IMPLEMENTATION_SRC_DIR">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code/src</pathOfID>
-        <pathOfID id="OUTPUT_BASE_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis</pathOfID>
+        <pathOfID id="SPECIFICATION_SRC_DIR">TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis/src</pathOfID>
+        <pathOfID id="IMPLEMENTATION_SRC_DIR">TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code/src</pathOfID>
+        <pathOfID id="OUTPUT_BASE_PATH">TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis</pathOfID>
         
         <!-- JOANA Analysis -->
-        <pathOfID id="ANALYSIS_PROJECT_PATH">C:\\Users\\legua\\eclipse\\modeling-2020-12\\Repos\\CaseStudies_CouplingSpecificationBasedAnalyses_TSE\\CaseStudies\\Systems\\TravelPlanner\\Code\\edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis</pathOfID>
-        <pathOfID id="JOANA_SOURCECODE_BASE_PACKAGE_PATH">C:\\Users\\legua\\eclipse\\modeling-2020-12\\Repos\\CaseStudies_CouplingSpecificationBasedAnalyses_TSE\\CaseStudies\\Systems\\TravelPlanner\\Code\\edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis\\src\\edu\\kit\\kastel\\sdq\\coupling\\casestudy\\travelplanner\\</pathOfID>
-        <pathOfID id="ENTRYPOINTS_FILE_PATH">C:\\Users\\legua\\eclipse\\modeling-2020-12\\Repos\\CaseStudies_CouplingSpecificationBasedAnalyses_TSE\\CaseStudies\\Systems\\TravelPlanner\\Code\\edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis\\entryPointIDs.txt</pathOfID>
-        <pathOfID id="OUTPUT_FILE_PATH">C:\\Users\\legua\\eclipse\\modeling-2020-12\\Repos\\CaseStudies_CouplingSpecificationBasedAnalyses_TSE\\CaseStudies\\Systems\\TravelPlanner\\SCAR\\JOANA\\AccessAnalysisResult.txt</pathOfID>
-        <pathOfID id="JAVA8_COMPILER_LOCATION">C:\\Users\\legua\\eclipse\\modeling-2020-12\\Repos\\CaseStudies_CouplingSpecificationBasedAnalyses_TSE\\Tools\\openjdk-8u392-b08-windows-64\\bin\\javac</pathOfID>
-        <pathOfID id="JAVA8_RUNTIME_LOCATION">C:\\Users\\legua\\eclipse\\modeling-2020-12\\Repos\\CaseStudies_CouplingSpecificationBasedAnalyses_TSE\\Tools\\openjdk-8u392-b08-windows-64\\bin\\java</pathOfID>
-        <pathOfID id="JOANA_CLI_LOCATION">C:\\Users\\legua\\eclipse\\modeling-2020-12\\Repos\\CaseStudies_CouplingSpecificationBasedAnalyses_TSE\\Tools\\joana.ui.ifc.wala.cli.jar</pathOfID>
-
+        <pathOfID id="ANALYSIS_PROJECT_PATH">TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis</pathOfID>
+        <pathOfID id="JOANA_SOURCECODE_BASE_PACKAGE_PATH">TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis/src/edu/kit/kastel/sdq/coupling/casestudy/travelplanner/</pathOfID>
+        <pathOfID id="ENTRYPOINTS_FILE_PATH">TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis/entryPointIDs.txt</pathOfID>
+        <pathOfID id="OUTPUT_FILE_PATH">TravelPlanner/SCAR/JOANA/AccessAnalysisResult.txt</pathOfID>
+        
 		<!-- JOANA Resolution -->
 		
-		<!-- JOANA Integration TODO: UPDATE AND CORRECT -->
-		<pathOfID id="JAVA_MODEL_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis/joanajava4accessanalysis.java</pathOfID>
-		<pathOfID id="JOANA_MODEL_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis/joana4accessanalysis.joana</pathOfID>
-		<pathOfID id="PCMJAVACORRESPONDENCE_MODEL_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis/joanajava4accessanalysis.pcmjavacorrespondence</pathOfID>
-		<pathOfID id="JOANA_RESULT_FILE_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/SCAR/JOANA/AccessAnalysisResult.txt</pathOfID>
-		<pathOfID id="REPOSITORY_MODEL_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/default.repository</pathOfID>
-		<pathOfID id="CONFIDENTIALITY_SPECIFICATION_MODEL_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/default.confidentiality</pathOfID>
+		<!-- JOANA Integration -->
+		<pathOfID id="JAVA_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis/java4accessanalysis.java</pathOfID>
+		<pathOfID id="JOANA_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis/joana4accessanalysis.joana</pathOfID>
+		<pathOfID id="CORRESPONDENCE_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis/pcmjava4accessanalysis.pcmjavacorrespondence</pathOfID>
+		<pathOfID id="JOANA_RESULT_FILE_PATH">TravelPlanner/SCAR/JOANA/AccessAnalysisResult.txt</pathOfID>
+		<pathOfID id="REPOSITORY_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/travelplanner.repository</pathOfID>
+		<pathOfID id="CONFIDENTIALITY_SPECIFICATION_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/travelplanner.confidentiality</pathOfID>
+		<pathOfID id="POLICY_STYLE">Disjunctive</pathOfID>
+		<pathOfID id="ORIGIN_BACKUP_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis.origin</pathOfID>
 		
     </pathsOfIDs>
         
