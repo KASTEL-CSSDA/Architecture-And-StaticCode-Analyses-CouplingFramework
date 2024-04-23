@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/ArchitectureAndStaticCodeAnalysisCouplingFramework"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="lib" path="libs/edu.kit.kastel.sdq.coupling.analysis.codeqlexecution-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql"/>
+	<classpathentry kind="lib" path="libs/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution-0.0.1-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

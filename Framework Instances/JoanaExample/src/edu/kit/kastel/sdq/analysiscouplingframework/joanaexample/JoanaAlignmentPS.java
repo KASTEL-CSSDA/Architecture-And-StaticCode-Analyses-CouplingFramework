@@ -26,7 +26,6 @@ public class JoanaAlignmentPS extends AlignmentPS {
 
 	@Override
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
-		// return new DummyAdapter("JoanaAlignmentPS");
 		return new AccessAnalysis2JoanaAdapter();
 	}
 

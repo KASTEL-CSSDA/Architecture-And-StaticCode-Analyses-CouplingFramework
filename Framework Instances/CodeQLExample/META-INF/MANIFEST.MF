@@ -9,9 +9,9 @@ Require-Bundle: org.eclipse.ui,
  ArchitectureAndStaticCodeAnalysisCouplingFramework;bundle-version="1.0.0",
  Partitioner,
  edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql;bundle-version="1.0.0",
- edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis;bundle-version="1.0.0"
+ edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample
-Bundle-ClassPath: libs/edu.kit.kastel.sdq.coupling.analysis.codeqlexecution-0.0.1-SNAPSHOT.jar,
- .
+Bundle-ClassPath: .,
+ libs/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution-0.0.1-SNAPSHOT.jar
 Export-Package: edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample

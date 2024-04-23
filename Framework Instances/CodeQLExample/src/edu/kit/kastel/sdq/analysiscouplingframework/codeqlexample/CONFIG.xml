@@ -5,37 +5,45 @@
     <!-- If no value is assigned a new uuid will be generated during first execution -->
     <uuid>d626dd07-f6fa-4f08-9e5f-032d068d1207</uuid>
     
-    <tempSharedFolder>C:/Users/legua/Documents/HIWI/Eclipse/Workspace/Architecture-And-StaticCode-Analyses-CouplingFramework/Framework Instances/SolidityExample/mocking folders for testing/TEMP</tempSharedFolder>
-    <resultSharedFolder>C:/Users/legua/Documents/HIWI/Eclipse/Workspace/Architecture-And-StaticCode-Analyses-CouplingFramework/Framework Instances/SolidityExample/mocking folders for testing/RESULT</resultSharedFolder>
+    <!-- Can be empty -->
+    <tempSharedFolder/>
+    <resultSharedFolder/>
         	
     <pathsOfIDs>
-
-		<!-- CodeQL Alignment -->
-        <pathOfID id="USER_SPECIFIC_REPO_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos</pathOfID>
-        <pathOfID id="EVAL_REPO_SPECIFIC_PATH">CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner</pathOfID>
-        <pathOfID id="PCM_MODEL_BASE_PATH">Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis</pathOfID>
-        <pathOfID id="CODEQL_MODELS_BASEFOLDER">edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis</pathOfID>
-        <pathOfID id="BASE_PACKAGE_NAME">edu.kit.kastel.sdq.coupling.casestudy.travelplanner</pathOfID>
+    	<!-- 2 Absolut User Specific Paths, must be adjusted to local machine-->
+        <pathOfID id="USER_SPECIFIC_PATH">C:/Users/legua/eclipse/Current_MT_2020-12/repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/</pathOfID>
+        <pathOfID id="CODEQL_CLI_PATH">C:/Users/legua/CodeQL/codeql/codeql.exe</pathOfID>
+        
+        <!-- all following paths/IDs are relative, must not be adjusted to local machine, only to different case studies-->
+        <!-- CodeQL Alignment -->
+        <pathOfID id="REPOSITORY_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/travelplanner.repository</pathOfID>
+        <pathOfID id="CONFIDENTIALITY_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/travelplanner.confidentiality</pathOfID>
+        <pathOfID id="CODE_BASE_PACKAGE_NAME">edu.kit.kastel.sdq.coupling.casestudy.travelplanner</pathOfID>
+        <pathOfID id="JAVA_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/java4accessanalysis.java</pathOfID>
+        <pathOfID id="CODEQL_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/codeql4accessanalysis.codeql</pathOfID>
+        <pathOfID id="CORRESPONDENCE_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/pcmjava4accessanalysis.pcmjavacorrespondence</pathOfID>
+        <pathOfID id="CODEQL_FOLDER_PATH">TravelPlanner/CodeQLQuery/AccessAnalysis/</pathOfID>
+        <pathOfID id="POLICY_STYLE">Disjunctive</pathOfID>
         
         <!-- CodeQL Completion -->
         
         <!-- CodeQL Analysis -->
-        <pathOfID id="CODEQL_CLI_PATH">C:/Users/legua/CodeQL/codeql/codeql.exe</pathOfID>
-        <pathOfID id="DB_LOCATION">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code/TravelPlannerCodeQLDB</pathOfID>
-        <pathOfID id="SOURCECODE_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code</pathOfID>
-        <pathOfID id="CODEQL_QUERY">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/CodeQLQuery/AccessAnalysisLabeledTaintTracking.ql</pathOfID>
-        <pathOfID id="OUTPUT_FILENAME">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/SCAR/CodeQL/codeQLAccessAnalysisOutput.sarif</pathOfID>
+        <pathOfID id="DB_LOCATION">TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code/TravelPlannerCodeQLDB</pathOfID>
+        <pathOfID id="SOURCECODE_PATH">TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code</pathOfID>
+        <pathOfID id="CODEQL_QUERY">TravelPlanner/CodeQLQuery/AccessAnalysis/LabeledTaintTracking4AccessAnalysis.ql</pathOfID>
+        <pathOfID id="OUTPUT_FILENAME">TravelPlanner/SCAR/CodeQL/codeQLResult4AccessAnalysis.sarif</pathOfID>
 
 		<!-- CodeQL Resolution -->
 		
 		<!-- CodeQL Integration -->
-		<pathOfID id="JAVA_MODEL_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/codeqljava4accessanalysis.java</pathOfID>
-		<pathOfID id="CODEQL_MODEL_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/codeql4accessanalysis.codeql</pathOfID>
-		<pathOfID id="PCMJAVACORRESPONDENCE_MODEL_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/codeqljava4accessanalysis.pcmjavacorrespondence</pathOfID>
-		<pathOfID id="CODEQL_RESULT_FILE_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/SCAR/CodeQL/codeQLAccessAnalysisOutput.sarif</pathOfID>
-		<pathOfID id="REPOSITORY_MODEL_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/default.repository</pathOfID>
-		<pathOfID id="CONFIDENTIALITY_SPECIFICATION_MODEL_PATH">C:/Users/legua/eclipse/modeling-2020-12/Repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/default.confidentiality</pathOfID>
-		
+		<pathOfID id="POLICY_STYLE">Disjunctive</pathOfID>
+		<pathOfID id="JAVA_MODEL_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/java4accessanalysis.java</pathOfID>
+		<pathOfID id="CODEQL_MODEL_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/codeql4accessanalysis.codeql</pathOfID>
+		<pathOfID id="CORRESPONDENCE_MODEL_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/pcmjava4accessanalysis.pcmjavacorrespondence</pathOfID>
+		<pathOfID id="CODEQL_RESULT_FILE_LOCATION">TravelPlanner/SCAR/CodeQL/codeQLResult4AccessAnalysis.sarif</pathOfID>
+		<pathOfID id="REPOSITORY_MODEL_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/travelplanner.repository</pathOfID>
+		<pathOfID id="CONFIDENTIALITY_SPECIFICATION_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/travelplanner.confidentiality</pathOfID>
+		<pathOfID id="ORIGIN_BACKUP_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis.origin</pathOfID>
     </pathsOfIDs>
         
 </configuration>

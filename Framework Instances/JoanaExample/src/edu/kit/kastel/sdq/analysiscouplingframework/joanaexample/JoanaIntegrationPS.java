@@ -34,6 +34,7 @@ public class JoanaIntegrationPS extends IntegrationPS {
 	protected String[] getArgsForExecution() {
 		String pathPrefix = super.registry.getFileForID(USER_SPECIFIC_PATH).getPath();
 
+		// Create absolut and relative paths
 		List<String> relPaths1 = Arrays.stream(Arrays.copyOfRange(ARG_IDS, 0, 6))
 				.map(e -> pathPrefix + super.registry.getFileForID(e).getPath()).collect(Collectors.toList());
 		String absPath1 = super.registry.getFileForID(ARG_IDS[6]).getPath();
