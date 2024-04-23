@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><configuration>
         	
-    <entrypoint>INTEGRATION</entrypoint>
+    <entrypoint>ALIGNMENT</entrypoint>
         	
     <!-- If no value is assigned a new uuid will be generated during first execution -->
     <uuid>d626dd07-f6fa-4f08-9e5f-032d068d1207</uuid>
