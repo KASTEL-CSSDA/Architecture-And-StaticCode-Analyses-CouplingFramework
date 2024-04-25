@@ -18,7 +18,7 @@ public class CodeQLAnalysisPS extends AnalysisPS {
 
 	protected static final String USER_SPECIFIC_PATH = "USER_SPECIFIC_PATH";
 	protected static final String[] ARG_IDS = { "CODEQL_CLI_PATH", "DB_LOCATION", "SOURCECODE_PATH", "CODEQL_QUERY",
-			"OUTPUT_FILENAME" };
+			"CODEQL_RESULT_FILE_LOCATION" };
 
 	public CodeQLAnalysisPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);

@@ -11,8 +11,8 @@
         	
     <pathsOfIDs>
     	<!-- 2 Absolut User Specific Paths, must be adjusted to local machine-->
-        <pathOfID id="USER_SPECIFIC_PATH">C:/Users/legua/eclipse/Current_MT_2020-12/repos/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/</pathOfID>
-        <pathOfID id="CODEQL_CLI_PATH">C:/Users/legua/CodeQL/codeql/codeql.exe</pathOfID>
+        <pathOfID id="USER_SPECIFIC_PATH">/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/</pathOfID>
+        <pathOfID id="CODEQL_CLI_PATH">/home/frederik/Programs/codeql/codeql</pathOfID>
         
         <!-- all following paths/IDs are relative, must not be adjusted to local machine, only to different case studies-->
         <!-- CodeQL Alignment -->
@@ -24,6 +24,7 @@
         <pathOfID id="CORRESPONDENCE_MODEL_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/pcmjava4accessanalysis.pcmjavacorrespondence</pathOfID>
         <pathOfID id="CODEQL_FOLDER_PATH">TravelPlanner/CodeQLQuery/AccessAnalysis/</pathOfID>
         <pathOfID id="POLICY_STYLE">Disjunctive</pathOfID>
+        <pathOfID id="ACCESSANALYSIS_CODEQL_CORRESPONDENCE_PATH">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/accessanalysiscodeqlcorrespondences.accessanalysiscodeqlcorrespondence</pathOfID>
         
         <!-- CodeQL Completion -->
         
@@ -31,19 +32,17 @@
         <pathOfID id="DB_LOCATION">TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code/TravelPlannerCodeQLDB</pathOfID>
         <pathOfID id="SOURCECODE_PATH">TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code</pathOfID>
         <pathOfID id="CODEQL_QUERY">TravelPlanner/CodeQLQuery/AccessAnalysis/LabeledTaintTracking4AccessAnalysis.ql</pathOfID>
-        <pathOfID id="OUTPUT_FILENAME">TravelPlanner/SCAR/CodeQL/codeQLResult4AccessAnalysis.sarif</pathOfID>
+        <pathOfID id="CODEQL_RESULT_FILE_LOCATION">TravelPlanner/SCAR/CodeQL/codeQLResult4AccessAnalysis.sarif</pathOfID>
 
 		<!-- CodeQL Resolution -->
 		
 		<!-- CodeQL Integration -->
-		<pathOfID id="POLICY_STYLE">Disjunctive</pathOfID>
-		<pathOfID id="JAVA_MODEL_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/java4accessanalysis.java</pathOfID>
-		<pathOfID id="CODEQL_MODEL_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/codeql4accessanalysis.codeql</pathOfID>
-		<pathOfID id="CORRESPONDENCE_MODEL_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/pcmjava4accessanalysis.pcmjavacorrespondence</pathOfID>
-		<pathOfID id="CODEQL_RESULT_FILE_LOCATION">TravelPlanner/SCAR/CodeQL/codeQLResult4AccessAnalysis.sarif</pathOfID>
-		<pathOfID id="REPOSITORY_MODEL_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/travelplanner.repository</pathOfID>
-		<pathOfID id="CONFIDENTIALITY_SPECIFICATION_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis/travelplanner.confidentiality</pathOfID>
+	
+		<pathOfID id="SCAR_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/scar.codeqlscar</pathOfID>
+		<pathOfID id="RESULTINGVALUES_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/resultingvalues.codeqlresultingvalues</pathOfID>
 		<pathOfID id="ORIGIN_BACKUP_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis.origin</pathOfID>
+		<pathOfID id="SCAR_CORRESPONDENCES_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/scarcorrespondences.codeqlscarcorrespondences</pathOfID>
+		<pathOfID id="RESULTINGVALUES_CORRESPONDENCES_LOCATION">TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis/resultingvaluescorrespondences.codeqlresultingvaluescorrespondences</pathOfID>
     </pathsOfIDs>
         
 </configuration>

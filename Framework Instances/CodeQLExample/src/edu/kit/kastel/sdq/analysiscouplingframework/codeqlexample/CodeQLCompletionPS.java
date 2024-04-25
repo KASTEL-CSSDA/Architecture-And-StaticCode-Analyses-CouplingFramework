@@ -6,6 +6,7 @@ import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdenti
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.CompletionPS;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.DefaultWorkflow;
+import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.WaitForManualActionWorkflow;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
 
 public class CodeQLCompletionPS extends CompletionPS {
@@ -30,7 +31,7 @@ public class CodeQLCompletionPS extends CompletionPS {
 
 	@Override
 	public Workflow getWorkflow() {
-		return new DefaultWorkflow(this);
+		return new WaitForManualActionWorkflow(this, "It may be necessary to manually add Fields to CodeQL Specification", "manual action performed", "manual action not performed");
 	}
 
 	@Override
