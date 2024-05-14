@@ -3,6 +3,9 @@ package edu.kit.kastel.sdq.analysiscouplingframework.iterative;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.kit.kastel.sdq.analysiscouplingframework.iterative.terminationcondition.AbstractTerminationCondition;
+import edu.kit.kastel.sdq.analysiscouplingframework.iterative.terminationcondition.EveryIterationOnceTerminationCondition;
+import edu.kit.kastel.sdq.analysiscouplingframework.iterative.terminationcondition.StabilityOfBackprojectionTerminationCondition;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Configuration;
 import edu.kit.kastel.sdq.partitioner.Partitioner;
 import edu.kit.kastel.sdq.partitioner.blackboard.PartitionerBlackboard;
@@ -13,6 +16,8 @@ public abstract class IterativeConfiguration extends Configuration {
 	protected final String partitionerJSONFilePath;
 	protected PartitionerBlackboard blackboard;
 	protected PartitionerParsingFactory ppFactory;
+	
+	protected AbstractTerminationCondition terminationCondition;
 
 	public IterativeConfiguration(String configFilePath, String partitionerJSONFilePath) {
 		super(configFilePath);
@@ -20,6 +25,21 @@ public abstract class IterativeConfiguration extends Configuration {
 		this.blackboard = new PartitionerBlackboard();
 		this.ppFactory = new PartitionerParsingFactory(partitionerJSONFilePath);
 		this.loadPartitionersOrInitializeWithDefault();
+		this.createAndLinkTerminationCondition();
+	}
+
+	private void createAndLinkTerminationCondition() {
+		
+		//TODO link the created Condition to parts of the configuration, e.g. strategies and the IntegrationPS...
+		
+		String terminationCondition = super.registry.getFileForID("termination_condition").getPath();
+		if(terminationCondition.equals("EveryIterationOnce")) {
+			this.terminationCondition = new EveryIterationOnceTerminationCondition();
+		} else if (terminationCondition.equals("StabilityOfBackprojection")){
+			this.terminationCondition = new StabilityOfBackprojectionTerminationCondition();
+		} else {
+			this.terminationCondition = null;
+		}
 	}
 
 	/**
@@ -74,5 +94,9 @@ public abstract class IterativeConfiguration extends Configuration {
 
 	private void savePartitioners(List<Partitioner> partitioners) {
 		this.ppFactory.savePartitioners(partitioners);
+	}
+
+	public AbstractTerminationCondition getTerminationCondition() {
+		return this.terminationCondition;
 	}
 }

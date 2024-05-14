@@ -5,13 +5,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+import edu.kit.kastel.sdq.analysiscouplingframework.adapter.DummyAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.AnalysisPS;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.DefaultWorkflow;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
-import edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.adapter.JoanaExecutionAdapter;
+import edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.iterative.JoanaExecutionAdapter;
 
 public class JoanaAnalysisPS extends AnalysisPS {
 
@@ -26,7 +27,7 @@ public class JoanaAnalysisPS extends AnalysisPS {
 
 	@Override
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
-		// return new DummyAdapter("JoanaAnalysisPS");
+//		return new DummyAdapter("JoanaAnalysisPS");
 		return new JoanaExecutionAdapter();
 	}
 

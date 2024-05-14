@@ -1,5 +1,8 @@
 package edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.iterative;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.JoanaAnalysisPS;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
@@ -26,7 +29,11 @@ public class IterativeJoanaAnalysisPS extends JoanaAnalysisPS {
 		// E.g.: Change "Result.txt" to "Result_iteration1.2.5.txt"
 		PartitionerStateRepresentation pStateRepr = new PartitionerStateRepresentation();
 
-		String oldOutputFileName = super.registry.getFileForID(OUTPUT_FILE_ID).getPath();
+		String oldOutputFileName = super.registry.getFileForID(USER_SPECIFIC_PATH).getPath()
+				+ super.registry.getFileForID(OUTPUT_FILE_ID).getPath();
+		oldOutputFileName = (System.getProperty("os.name").toLowerCase().contains("win"))
+				? oldOutputFileName.replaceAll(Pattern.quote("/"), Matcher.quoteReplacement("\\\\"))
+				: oldOutputFileName;
 		String newOutputFileName = oldOutputFileName.substring(0, oldOutputFileName.lastIndexOf('.')) + "_iteration"
 				+ pStateRepr.getCurrentPartitionerRepresentation(this.blackboard)
 				+ oldOutputFileName.substring(oldOutputFileName.lastIndexOf('.'));
@@ -37,6 +44,9 @@ public class IterativeJoanaAnalysisPS extends JoanaAnalysisPS {
 				break;
 			}
 		}
+
+		System.out.println("------------------------> Result file name: " + args[5]);
+
 		return args;
 	}
 }

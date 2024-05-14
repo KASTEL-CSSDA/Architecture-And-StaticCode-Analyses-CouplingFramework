@@ -45,6 +45,7 @@ public class Session {
 				running = false;
 			} else if (!this.entrypoint.hasNext()) {
 				this.logger.print(new OKResult("Session " + this.uuid + " was executed successfully."));
+				this.logger.print(new OKResult(""));
 				this.resetEntrypoint();
 				successful = true;
 				running = false;

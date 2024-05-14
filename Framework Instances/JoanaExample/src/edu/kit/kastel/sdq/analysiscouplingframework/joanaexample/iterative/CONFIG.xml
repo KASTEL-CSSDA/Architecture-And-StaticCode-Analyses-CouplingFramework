@@ -20,7 +20,13 @@
         <pathOfID id="partitioner_entrypoints">TrivialPartitioner</pathOfID>
         <pathOfID id="partitioner_sources">TrivialPartitioner</pathOfID>
         <pathOfID id="partitioner_sinks">TrivialPartitioner</pathOfID>
-        <pathOfID id="partitioner_levels">TrivialPartitioner</pathOfID>
+        <pathOfID id="partitioner_levels">LinearSingleElementPartitioner</pathOfID>
+        
+        <!-- Iteration Type, choose between: {Sequential, Parallel} -->
+        <pathOfID id="iteration_type">Parallel</pathOfID>
+        
+        <!-- Termination Condition, choose between: {EveryIterationOnce, StabilityOfBackprojection} -->
+        <pathOfID id="termination_condition">EveryIterationOnce</pathOfID>
         
         
         

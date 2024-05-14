@@ -1,6 +1,7 @@
 package edu.kit.kastel.sdq.analysiscouplingframework.iterative;
 
 import edu.kit.kastel.sdq.analysiscouplingframework.AnalysisCouplingFramework;
+import edu.kit.kastel.sdq.analysiscouplingframework.iterative.terminationcondition.AbstractTerminationCondition;
 import edu.kit.kastel.sdq.partitioner.blackboard.PartitionerBlackboard;
 import edu.kit.kastel.sdq.partitioner.blackboard.PartitionerIncrementer;
 
@@ -31,6 +32,9 @@ public abstract class AbstractIterativeRunner {
 
 		PartitionerBlackboard blackboard = config.getPartitionerBlackboard();
 		PartitionerIncrementer incrementer = new PartitionerIncrementer();
+		
+		AbstractTerminationCondition terminationCondition = config.getTerminationCondition();
+		// TODO use terminationConditions --> while(condition.isFulfilled())
 
 		while (true) {
 			// run framework
