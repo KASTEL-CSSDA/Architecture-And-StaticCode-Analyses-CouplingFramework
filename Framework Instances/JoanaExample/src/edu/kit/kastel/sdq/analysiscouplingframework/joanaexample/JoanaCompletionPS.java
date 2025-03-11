@@ -1,5 +1,6 @@
 package edu.kit.kastel.sdq.analysiscouplingframework.joanaexample;
 
+
 import java.util.Arrays;
 import java.util.stream.Stream;
 
@@ -7,22 +8,23 @@ import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessing
 import edu.kit.kastel.sdq.analysiscouplingframework.exceptions.MissingPathIdentifierException;
 import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.CompletionPS;
-import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.DefaultWorkflow;
+import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.EndingWithWaitForManualActionWorkflow;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
 import edu.kit.kastel.sdq.coupling.completion.specificationtransfer.adapter.SpecificationTransferAdapter;
 
 public class JoanaCompletionPS extends CompletionPS {
 
 	protected static final String USER_SPECIFIC_PATH = "USER_SPECIFIC_PATH";
-	protected static final String[] ARG_IDS = { "SPECIFICATION_SRC_DIR", "IMPLEMENTATION_SRC_DIR", "OUTPUT_BASE_PATH" };
+	protected static final String[] ARG_IDS = { "SPECIFICATION_SRC_DIR", "IMPLEMENTATION_SRC_DIR", "JAVA_CODE_BASE_PATH" };
 
 	public JoanaCompletionPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);
 	}
-
+	
+	
 	@Override
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
-		//return new DummyAdapter("JoanaCompletionPS");
+		// return new DummyAdapter("JoanaIntegrationPS");
 		return new SpecificationTransferAdapter();
 	}
 
@@ -39,7 +41,7 @@ public class JoanaCompletionPS extends CompletionPS {
 
 	@Override
 	public Workflow getWorkflow() {
-		return new DefaultWorkflow(this);
+		return new EndingWithWaitForManualActionWorkflow(this, "It may be neccesary to perform manual completions, e.g., adding JOANA Specifications to fields" , "manual action performed", "manual action not performed");
 	}
 
 	@Override

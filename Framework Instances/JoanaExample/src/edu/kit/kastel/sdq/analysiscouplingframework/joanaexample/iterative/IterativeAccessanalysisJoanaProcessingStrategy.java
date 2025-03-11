@@ -13,7 +13,7 @@ public class IterativeAccessanalysisJoanaProcessingStrategy extends ProcessingSt
 			throws MissingPathIdentifierException {
 		super(new IterativeJoanaAlignmentPS(registry, blackboard), new JoanaCompletionPS(registry),
 				new IterativeJoanaAnalysisPS(registry, blackboard), new JoanaResolutionPS(registry),
-				new IterativeJoanaIntegrationPS(registry, blackboard));
+				null);
 	}
 
 }

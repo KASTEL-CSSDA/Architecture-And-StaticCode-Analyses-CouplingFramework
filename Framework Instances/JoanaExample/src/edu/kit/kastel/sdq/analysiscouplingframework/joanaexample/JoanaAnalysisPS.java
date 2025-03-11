@@ -16,8 +16,8 @@ import edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.adapter.Joa
 public class JoanaAnalysisPS extends AnalysisPS {
 
 	protected static final String USER_SPECIFIC_PATH = "USER_SPECIFIC_PATH";
-	protected static final String[] ARG_IDS = { "ANALYSIS_PROJECT_PATH", "JOANA_SOURCECODE_BASE_PACKAGE_PATH",
-			"ENTRYPOINTS_FILE_PATH", "OUTPUT_FILE_PATH", "JAVA8_COMPILER_LOCATION", "JAVA8_RUNTIME_LOCATION",
+	protected static final String[] ARG_IDS = { "ANALYSIS_PROJECT_CODE_PATH", "JOANA_SOURCECODE_BASE_PACKAGE_PATH",
+			"ENTRYPOINTS_FILE_PATH", "JOANA_RESULT_FILE_PATH", "JAVA8_COMPILER_LOCATION", "JAVA8_RUNTIME_LOCATION",
 			"JOANA_CLI_LOCATION" };
 
 	public JoanaAnalysisPS(Registry registry) throws MissingPathIdentifierException {
@@ -28,6 +28,12 @@ public class JoanaAnalysisPS extends AnalysisPS {
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
 		// return new DummyAdapter("JoanaAnalysisPS");
 		return new JoanaExecutionAdapter();
+	}
+	
+	@Override
+	protected String[] getNecessaryIDs() {
+		// TODO Auto-generated method stub
+		return ARG_IDS;
 	}
 
 	@Override

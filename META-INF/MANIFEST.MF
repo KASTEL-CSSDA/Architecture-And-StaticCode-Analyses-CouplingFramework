@@ -6,7 +6,6 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: ArchitectureAndStaticCodeAnalysisCouplingFramework.jar,
  lib/commons-io-2.13.0.jar
 Automatic-Module-Name: ArchitectureAndStaticCodeAnalysisCouplingFramework
-Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: edu.kit.kastel.sdq.analysiscouplingframework,
  edu.kit.kastel.sdq.analysiscouplingframework.adapter,
  edu.kit.kastel.sdq.analysiscouplingframework.exceptions,
