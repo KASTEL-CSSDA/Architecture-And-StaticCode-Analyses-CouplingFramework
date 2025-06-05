@@ -1,1 +1,0 @@
-{"partitioners":[{"type":"linear","id":"partitioner_sinks","instances":["sink1","sink2","sink3"],"initialized":true,"pointer":1},{"type":"trivial","id":"partitioner_srcs","instances":["src1","src2","src3"],"initialized":true},{"type":"linear","id":"partitioner_entry","instances":["e1","e2","e3"],"initialized":true,"pointer":0}]}
