@@ -71,6 +71,7 @@ public abstract class Configuration {
 		} catch (Exception e) {
 			System.out.println("Error reading configuration file:");
 			System.out.println(e.getMessage());
+			System.out.println("Maybe the path is invalid.");
 		}
 		return null;
 	}
@@ -105,6 +106,7 @@ public abstract class Configuration {
 	public void saveEntrypointForNextExecution(Entrypoint entrypointForNextExecution) {
 		Document document = this.getDocumentByFilePath();
 
+		this.entrypoint = entrypointForNextExecution;
 		document.getElementsByTagName(TAG_NAME_ENTRYPOINT).item(0).setTextContent(entrypointForNextExecution.name());
 		
 		this.saveDocumentByFilePath(document);

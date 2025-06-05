@@ -7,18 +7,19 @@ public class AnalysisCouplingFramework {
 	
 	Logger logger = new Logger();
 
-	public void run(Configuration config) {
+	public boolean run(Configuration config) {
+		boolean successful = false;
 		try {
 			Session session = config.createSession(logger);
 			
-			session.execute();
+			successful = session.execute();
 			
 			config.saveEntrypointForNextExecution(session.getEntrypointForNextExecution());
 			
 		} catch (MissingPathIdentifierException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		Logger.saveLogFile();
+		return successful;
 	}
 }

@@ -1,6 +1,6 @@
 package edu.kit.kastel.sdq.analysiscouplingframework.results;
 
-import java.io.IOException;
+import java.util.Scanner;
 
 public class WaitForManualActionResult extends NotOKResult {
 	
@@ -20,14 +20,12 @@ public class WaitForManualActionResult extends NotOKResult {
 		System.out.println(">>> " + this.manualActionInstructions);
 		System.out.println(">>> Manual action ready? y/n");
 
-		char input = 0;
-		try {
-			input = (char) System.in.read();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
+		while(!scanner.hasNext());
+		String input = scanner.nextLine();
 
-		return (input == 'y') ? new ManualActionPerformedResult(this.messageForPerformed)
+		return (input.equals("y")) ? new ManualActionPerformedResult(this.messageForPerformed)
 				: new ManualActionNotPerformedResult(this.messageForNotPerformed);
 	}
 }
